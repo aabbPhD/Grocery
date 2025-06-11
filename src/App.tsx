@@ -7,7 +7,7 @@ import MainPage from './components/pages/MainPage';
 import ProductPage from './components/pages/ProductPage';
 import ProfilePage from './components/pages/ProfilePage';
 import NotFound from './components/pages/NotFound';
-import type { CartItemType } from './types/types';
+//import type { CartItemType } from './types/types';
 import CategoryPage from './components/pages/CategoryPage';
 import useProductStore from './store/products.store';
 import { loginAction } from './components/Auth';
@@ -48,7 +48,7 @@ function App() {
 				element={<NotFound />} 
 			/>
 		</Route>
-	))
+	), {basename: '/Grocery'})
 
 	return (
 		<RouterProvider router={router} />

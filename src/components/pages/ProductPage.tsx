@@ -17,11 +17,12 @@ export default function ProductPage() {
     const [productData, setProductData] = React.useState<ProductType | undefined>(undefined);
 
     React.useEffect(() => {
-        if (products) {
-            const fetchedProductData = products?.find(item => item.id === Number(params.id) && item.category === categoriesEnToRu[params.category]);
+        if (products && params?.category && params?.id) {
+            const paramCategory = params.category;
+            const fetchedProductData = products?.find(item => item.id === Number(params.id) && item.category === categoriesEnToRu[paramCategory]);
             setProductData(fetchedProductData);
         }      
-    }, [products, params.id])
+    }, [products, params.id, params.category])
 
     function addToCart(e: React.MouseEvent<HTMLButtonElement>) {
         e.stopPropagation();
